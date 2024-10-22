@@ -1,81 +1,69 @@
-import Link from 'next/link';
+"use client"
+import styles from "./page.module.css"; // Import custom styles
+import {useEffect} from 'react';
 
-export default function Home() {
+const HomePage = () => {
+   useEffect(() => {
+     const texts = [
+       "Brighten your Day",
+       "Find your Way",
+       "Travel Each Day",
+       "Plan the stay",
+       "Keep it slay",
+       "Escape today",
+       "Getaway",
+     ];
+     let currentIndex = 0;
+
+     const changeText = () => {
+       $("#tagline-dynamic").fadeOut(700, function () {
+         currentIndex = (currentIndex + 1) % texts.length;
+         $(this).text(texts[currentIndex]).fadeIn(0);
+       });
+     };
+
+     const intervalId = setInterval(changeText, 2000);
+
+     // Clean up interval on component unmount
+     return () => clearInterval(intervalId);
+   }, []);
   return (
     <div>
-      <header>
-        <nav>
+      <section id={styles.jumbotron}>
+        <div id={styles.tagline}>
+          <div className={styles.dynamic} id="tagline-dynamic">Trip a Day</div>
+          <div className={styles.still}>with Journeyeay</div>
+        </div>
+      </section>
+
+      <div className={(styles.main, styles.container)}>
+        <section className={styles.intro}>
+          <h2>Explore Breathtaking Destinations</h2>
+          <p>
+            At Journeyeay, we specialize in providing unique travel experiences
+            tailored just for you. Whether you're looking for a thrilling
+            adventure or a relaxing getaway, we have something for everyone!
+          </p>
+        </section>
+
+        <section className={styles.services}>
+          <h2>Our Services</h2>
           <ul>
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/tours">Tours</Link></li>
-            <li><Link href="/about">About</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
+            <li>Private Tours</li>
+            <li>Group Adventures</li>
+            <li>Customized Travel Packages</li>
+            <li>Expert Travel Guides</li>
           </ul>
-        </nav>
-      </header>
-
-      <main>
-        {/* Hero Section */}
-        <section style={heroStyle}>
-          <h1>Explore the World with Us!</h1>
-          <p>Your adventure begins here. Discover stunning destinations and create unforgettable memories.</p>
-          <button><Link href="/tours">Explore Tours</Link></button>
         </section>
 
-        {/* Featured Tours */}
-        <section style={sectionStyle}>
-          <h2>Popular Tours</h2>
-          <div style={gridStyle}>
-            <div style={tourCard}>
-              <h3>Bromo Adventure</h3>
-              <p>Explore the breathtaking views of Mount Bromo on this unforgettable journey.</p>
-            </div>
-            <div style={tourCard}>
-              <h3>Bali Beaches</h3>
-              <p>Discover the serene beauty of Bali's world-famous beaches.</p>
-            </div>
-            <div style={tourCard}>
-              <h3>Yogyakarta Culture</h3>
-              <p>Dive into the rich culture and history of Yogyakarta.</p>
-            </div>
-          </div>
+        <section className={styles.cta}>
+          <h2>Ready to Start Your Journey?</h2>
+          <p>Contact us today to plan your next adventure!</p>
+          <button className={styles.button}>Get Started</button>
         </section>
-      </main>
-
-      <footer style={footerStyle}>
-        <p>&copy; 2024 Explore Bromo. All rights reserved.</p>
-      </footer>
+      </div>
     </div>
   );
-}
-
-// Styles (Inline for simplicity)
-const heroStyle = {
-  padding: '100px 20px',
-  textAlign: 'center',
-  backgroundColor: '#f0f0f0'
 };
 
-const sectionStyle = {
-  padding: '50px 20px',
-  textAlign: 'center'
-};
-
-const gridStyle = {
-  display: 'flex',
-  justifyContent: 'space-around'
-};
-
-const tourCard = {
-  width: '30%',
-  backgroundColor: '#f9f9f9',
-  padding: '20px',
-  borderRadius: '10px'
-};
-
-const footerStyle = {
-  textAlign: 'center',
-  padding: '20px',
-  backgroundColor: '#222',
-  color: '#fff'
-};
+export default HomePage;

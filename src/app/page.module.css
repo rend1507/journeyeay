@@ -1,0 +1,63 @@
+/* src/app/page.module.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#jumbotron {
+  text-align: center;
+  padding: 50px 0;
+  background-image: url("/images/banner/banner-1.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 500px;
+
+  font-family: var(--font-roboto);
+  font-size: 1.5em;
+}
+
+#jumbotron #tagline .dynamic {
+  font-family: var(--font-oswald);
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 5em;
+  background: linear-gradient(
+    to bottom,
+    yellow 0%,
+    yellow 40%,
+    rgba(255, 0, 0, 0) 100%
+  );
+  -webkit-background-clip: text; /* For Safari */
+  background-clip: text;
+  color: transparent; /* Make text color transparent */
+  /* Optional: For a smooth transition */
+  transition: all 0.5s ease;
+}
+
+.logo {
+  margin-top: 20px;
+}
+
+.main {
+  margin: 20px 0;
+}
+
+.intro,
+.services,
+.cta {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cta {
+  text-align: center;
+}
+
+.footer {
+  padding: 20px 0;
+}
