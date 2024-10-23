@@ -1,6 +1,7 @@
 "use client"
-import styles from "./page.module.css"; // Import custom styles
 import {useEffect} from 'react';
+import Image from "next/image";
+
 
 const HomePage = () => {
    useEffect(() => {
@@ -29,15 +30,25 @@ const HomePage = () => {
    }, []);
   return (
     <div>
-      <section id={styles.jumbotron}>
-        <div id={styles.tagline}>
-          <div className={styles.dynamic} id="tagline-dynamic">Trip a Day</div>
-          <div className={styles.still}>with Journeyeay</div>
+      <section id="jumbotron">
+        <div id="tagline">
+          <div id="tagline-dynamic">Trip a Day</div>
+          <div id="tagline-static">
+            with{" "}
+            <Image
+              className="inline"
+              src="/images/icon/text-landscape-2.png" // Path to your logo image
+              alt="Journeyeay Logo"
+              width={150} // Fixed width
+              height={150}
+              priority // Set the priority to preload the image
+            />
+          </div>
         </div>
       </section>
 
-      <div className={(styles.main, styles.container)}>
-        <section className={styles.intro}>
+      <div className="container">
+        <section className="intor">
           <h2>Explore Breathtaking Destinations</h2>
           <p>
             At Journeyeay, we specialize in providing unique travel experiences
@@ -46,7 +57,7 @@ const HomePage = () => {
           </p>
         </section>
 
-        <section className={styles.services}>
+        <section id="services">
           <h2>Our Services</h2>
           <ul>
             <li>Private Tours</li>
@@ -56,10 +67,10 @@ const HomePage = () => {
           </ul>
         </section>
 
-        <section className={styles.cta}>
+        <section id="cta">
           <h2>Ready to Start Your Journey?</h2>
           <p>Contact us today to plan your next adventure!</p>
-          <button className={styles.button}>Get Started</button>
+          <button className="btton">Get Started</button>
         </section>
       </div>
     </div>
