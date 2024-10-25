@@ -168,7 +168,8 @@ footer {
   height: 100px;
   background-image: url("/images/banner/mountain-1.png");
   background-size: contain;
-
+  background-position: bottom;
+  background-repeat: repeat-x;
   z-index: 2;
 }
 
@@ -197,9 +198,6 @@ footer {
 
 #services > .overlay {
   background-color: rgba(var(--secondary), 0.5);
-}
-#services .container {
-  padding: 70px 0;
 }
 #services .section-title {
   text-align: center;
@@ -276,6 +274,11 @@ footer {
 
 #services .grid > .item:hover .item-text {
   opacity: 1;
+}
+
+#services .container,
+#why {
+  padding: 70px 0;
 }
 
 #why .section-title {
