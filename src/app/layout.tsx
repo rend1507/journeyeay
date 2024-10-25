@@ -1,5 +1,12 @@
 import "./globals.css"; // Import your global styles
 import { FC, ReactNode } from "react";
+
+
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
+
+
 import Header from "./components/Header"; // Import the Header
 import Footer from "./components/Footer"; // Import the Footer
 import Script from "next/script";
@@ -63,12 +70,12 @@ const RootLayout: FC<LayoutProps> = ({ children }) => {
         <Footer /> {/* Display Footer on all pages */}
       </body>
       <Script
-        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        src="/js/jquery-3.7.1.min.js"
         strategy="lazyOnload"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossOrigin="anonymous"
       ></Script>
-      <Script src="/script/script.js"></Script>
+      <Script src="/js/script.js"></Script>
     </html>
   );
 };
