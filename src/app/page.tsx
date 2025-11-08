@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import {
-  faThumbsUp,
   faMapLocationDot,
   faPersonHiking,
   faCalendarCheck,
